@@ -84,6 +84,11 @@
                  * 客户端对账号信息进行一些必要的校验。
                  * 实际开发中，根据业务需要进行处理，这里仅做示例。
                  */
+				uni.reLaunch({
+				    url: '../main/main',
+				});
+				
+				//-------------------------------------
                 if (this.account.length < 5) {
                     uni.showToast({
                         icon: 'none',

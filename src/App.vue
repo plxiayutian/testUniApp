@@ -109,4 +109,8 @@
     button.primary {
         background-color: #0faeff;
     }
+	
+	.m-input-icon{
+		margin-right: 20upx;
+	}
 </style>
