@@ -22,6 +22,7 @@ npm run test
 ```
 
 ### Lints and fixes files--代码规范和错误检查工具版本
+### 详情查看：https://cn.eslint.org/docs/rules/
 ```
 npm run lint
 ```
