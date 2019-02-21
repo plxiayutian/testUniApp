@@ -1,0 +1,197 @@
+@charset "utf-8";
+/*过渡效果*/
+.translate-l-r {
+    animation: translate-l-r 10s infinite;
+    -ms-animation: translate-l-r 10s infinite;
+    -moz-animation: translate-l-r 10s infinite; /* Firefox */
+    -webkit-animation: translate-l-r 10s infinite; /* Safari 和 Chrome */
+    -o-animation: translate-l-r 10s infinite; /* Opera */
+}
+@-webkit-keyframes translate-l-r {
+    0% {
+        transform: translateX(0);
+        -ms-transform: translateX(0); /* IE 9 */
+        -moz-transform: translateX(0); /* Firefox 4*/
+        -webkit-transform: translateX(0); /* Safari and Chrome */
+        -o-transform: translateX(0); /* Opera */
+    }
+    50% {
+        transform: translateX(12rem);
+        -ms-transform: translateX(12rem); /* IE 9 */
+        -moz-transform: translateX(12rem); /* Firefox 4*/
+        -webkit-transform: translateX(12rem); /* Safari and Chrome */
+        -o-transform: translateX(12rem); /* Opera */
+    }
+
+    100% {
+        transform: translateX(0);
+        -ms-transform: translateX(0); /* IE 9 */
+        -moz-transform: translateX(0); /* Firefox 4*/
+        -webkit-transform: translateX(0); /* Safari and Chrome */
+        -o-transform: translateX(0); /* Opera */
+    }
+}
+/*渐变 颜色*/
+.change-color {
+    animation: changeColor 10s infinite;
+    -moz-animation: changeColor 10s infinite; /* Firefox */
+    -webkit-animation: changeColor 10s infinite; /* Safari 和 Chrome */
+    -o-animation: changeColor 10s infinite; /* Opera */
+}
+
+@keyframes changeColor {
+    0% {color: red;}
+    25% {color: yellow;}
+    50% {color: blue;}
+    75% {color: orange;}
+    100% {color: green;}
+}
+@-moz-keyframes changeColor /* Firefox */
+{
+    0% {color: red;}
+    25% {color: yellow;}
+    50% {color: blue;}
+    75% {color: orange;}
+    100% {color: green;}
+}
+@-webkit-keyframes changeColor /* Safari 和 Chrome */
+{
+    0% {color: red;}
+    25% {color: yellow;}
+    50% {color: blue;}
+    75% {color: orange;}
+    100% {color: green;}
+}
+
+@-o-keyframes changeColor /* Opera */
+{
+    0% {color: red;}
+    25% {color: yellow;}
+    50% {color: blue;}
+    75% {color: orange;}
+    100% {color: green;}
+}
+
+/*黑色 透明背景 文字不透明*/
+.bg-opacity {
+    position: relative;
+}
+
+.bg-opacity > div {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.bg-opacity-bottom {
+    /*background-color: #aaa;*/
+    background-color: #000;
+    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
+    -moz-opacity: 0.7;
+    -khtml-opacity: 0.7;
+    opacity: 0.7;
+    z-index: 0;
+}
+
+.bg-opacity-top {
+    z-index: 1;
+    padding: 0.2rem 0.5rem;
+}
+
+/*阴影*/
+.box-shadow {
+    -webkit-box-shadow: 0 2upx 8upx rgba(0, 0, 0, 0.27), 0 0 60upx rgba(0, 0, 0, 0.06) inset;
+    -moz-box-shadow: 0 2upx 8upx rgba(0, 0, 0, 0.27), 0 0 40upx rgba(0, 0, 0, 0.06) inset;
+    box-shadow: 0 2upx 8upx rgba(0, 0, 0, 0.27), 0 0 40upx rgba(0, 0, 0, 0.06) inset;
+}
+
+.align-right {
+    text-align: right;
+}
+
+/*竖线*/
+.vertical-line {  display: block;  border: 0.5px solid #eee;  }
+
+/*******************************多列布局***********************/
+/* 多列布局  */
+.div_column_tow{-webkit-column-count:2;-moz-column-count:2;column-count:2;}
+.div_column_three{-webkit-column-count:3;-moz-column-count:3;column-count:3;}
+.div_column_four{-webkit-column-count:4;-moz-column-count:4;column-count:4;}
+.div_column_gap5{-webkit-column-gap:10upx;-moz-column-gap:10upx;column-gap:10upx;}
+.div_column_gap10{-webkit-column-gap:20upx;-moz-column-gap:20upx;column-gap:20upx;}
+.div_column_gap20{-webkit-column-gap:40upx;-moz-column-gap:40upx;column-gap:40upx;}
+.div_column{display:-webkit-box;display:-moz-box;display:-webkit-flex;display:-moz-flex;display:-ms-flex;display:flex;}
+.justify_content{justify-content: space-between;}
+.align_item_top{align-items:flex-start;align-content:flex-start;}
+.align_item_center{align-items:center;align-content:center;}
+.align_item_bottom{align-items:flex-end;align-content:flex-end;}
+
+/* 文字方向 */
+.text_align_center{text-align:center;}
+.text_align_right{text-align:right;}
+/* 字体 */
+.font_size_14{font-size:28upx;}
+.font_size_15{font-size:30upx;}
+.font_size_16{font-size:32upx;}
+.font_size_18{font-size:36upx;}
+.font_size_20{font-size:40upx!important;}
+.font_weight{font-weight:bold;}
+/* 首行缩进 */
+.text_indent{text-indent:2em;}
+/* 边框 */
+.border_bottom_white{border-bottom: 1upx solid #fff;}
+.border_left_radius{border-top-left-radius: 10upx;border-bottom-left-radius: 10upx;}
+.border_right_radius{border-top-right-radius: 10upx;border-bottom-right-radius: 10upx;}
+
+/*字体颜色*/
+.color-b-green {  color: #00A000;  }
+.color-green {  color: #97ce68;  }
+.color-blue {  color: #0894ec;  }
+.color-blue-weight {  color: #0049a8;  }
+.color-a{ color:#337ab7; }
+.color-yellow {  color: #FFCC00;  }
+.color-b-yellow {  color: #FBA733;  }
+.color-orange {  color: orange;  }
+.color-red {  color: red;  }
+.color-white {  color: white;  }
+.color-light1-gray {  color: #f2f2f2;  }
+.color-light-gray {  color: lightgrey;  }
+.color-gray {  color: darkgrey;  }
+.color_orange{color: #ffff00;}
+.color_green{color: green;}
+.color_red{color: red;}
+.color_white{color: white;}
+.color_black{color: black;}
+.color_333{color: #333;}
+.color_999{color: #999;}
+.color_ddd{color: #ddd;}
+.color_f2f2f2{color: #f2f2f2;}
+.color_white_i{color: white!important;}
+
+/*背景颜色*/
+.background_color{ background-color:#003D5A;}
+.bg_color_white{ background-color: #fff;}
+.bg_color_blue{ background-color: #0066CC;}
+.bg_color_lightblue{ background-color: #7FFFD4;}
+.bg_color_gray{ background-color: #999;}
+.bg-color-blue { background-color: #0894ec;  }
+.bg-color-deepskyblue { background-color: deepskyblue;  }
+.bg-color-green { background-color: limegreen;  }
+.bg-color-pink { background-color: deeppink;  }
+.bg-color-orange { background-color: orange;  }
+.bg-color-red { background-color: orangered;  }
+.bg-color-white { background-color: white;  }
+.bg-color-black { background-color: black;  }
+.bg-color-333 { background-color: #333;  }
+.bg-color-999 { background-color: #999;  }
+.bg-color-ddd { background-color: #ddd;  }
+.bg-color-f2f2f2 { background-color: #f2f2f2;  }
+
+/* 边框颜色 */
+.border_color_333{border-color: #333;}
+.border_color_666{border-color: #666;}
+.border_color_999{border-color: #999;}
+.border_color_ddd{border-color: #ddd;}
+.border_color_f2f2f2{border-color: #f2f2f2;}

@@ -20,6 +20,7 @@
     "@dcloudio/uni-mp-alipay": "*",
     "@dcloudio/uni-mp-baidu": "*",
     "@dcloudio/uni-mp-weixin": "*",
+    "@dcloudio/uni-ui": "0.0.3",
     "flyio": "^0.6.2",
     "vue": "^2.5.21",
     "vuex": "^3.0.1"
