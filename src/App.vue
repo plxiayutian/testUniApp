@@ -1,5 +1,6 @@
 <script>
 export default {
+	//当uni-app 初始化完成时触发
 	onLaunch: function() {
 		console.log('App Launch');
 		// #ifdef APP-PLUS
@@ -32,9 +33,11 @@ export default {
 		}) */
 		// #endif
 	},
+	//当 uni-app 启动，或从后台进入前台显示
 	onShow: function() {
 		console.log('App Show');
 	},
+	//当 uni-app 从前台进入后台
 	onHide: function() {
 		console.log('App Hide');
 	}
@@ -44,7 +47,6 @@ export default {
 <style>
 	/* uni.css - 通用组件、模板样式库，可以当作一套ui库应用 */
 	@import "./common/uni.css";
-	@import "./common/main.css";
 
 	/* 引入字体图标fontawesome */
 	/* @font-face {

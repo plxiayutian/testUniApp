@@ -1,14 +1,11 @@
-/**
+/*
  * 这里是uni-app内置的常用样式变量
- *
  * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
  * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
- *
  */
 
-/**
+/*
  * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
- *
  * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
  */
 
@@ -21,32 +18,33 @@ $uni-color-warning: #f0ad4e;
 $uni-color-error: #dd524d;
 
 /* 文字基本颜色 */
-$uni-text-color:#333;//基本色
-$uni-text-color-inverse:#fff;//反色
-$uni-text-color-grey:#999;//辅助灰色，如加载更多的提示信息
+$uni-text-color: #333; //基本色
+$uni-text-color-inverse: #fff; //反色
+$uni-text-color-grey: #999; //辅助灰色，如加载更多的提示信息
 $uni-text-color-placeholder: #808080;
-$uni-text-color-disable:#c0c0c0;
+$uni-text-color-disable: #c0c0c0;
+$uni-text-color-red: red; //标注红色，提示、标注、警告用
 
 /* 背景颜色 */
-$uni-bg-color:#ffffff;
-$uni-bg-color-grey:#f8f8f8;
-$uni-bg-color-hover:#f1f1f1;//点击状态颜色
-$uni-bg-color-mask:rgba(0, 0, 0, 0.4);//遮罩颜色
+$uni-bg-color: #ffffff;
+$uni-bg-color-grey: #f8f8f8;
+$uni-bg-color-hover: #f1f1f1; //点击状态颜色
+$uni-bg-color-mask: rgba(0, 0, 0, 0.4); //遮罩颜色
 
 /* 边框颜色 */
-$uni-border-color:#c8c7cc;
+$uni-border-color: #c8c7cc;
 
 /* 尺寸变量 */
 
 /* 文字尺寸 */
-$uni-font-size-sm:24upx;
-$uni-font-size-base:28upx;
-$uni-font-size-lg:32upx;
+$uni-font-size-sm: 24upx;
+$uni-font-size-base: 28upx;
+$uni-font-size-lg: 32upx;
 
 /* 图片尺寸 */
-$uni-img-size-sm:40upx;
-$uni-img-size-base:52upx;
-$uni-img-size-lg:80upx;
+$uni-img-size-sm: 40upx;
+$uni-img-size-base: 52upx;
+$uni-img-size-lg: 80upx;
 
 /* Border Radius */
 $uni-border-radius-sm: 4upx;
@@ -68,9 +66,137 @@ $uni-spacing-col-lg: 24upx;
 $uni-opacity-disabled: 0.3; // 组件禁用态的透明度
 
 /* 文章场景相关 */
-$uni-color-title: #2C405A; // 文章标题颜色
-$uni-font-size-title:40upx;
+$uni-color-title: #2c405a; // 文章标题颜色
+$uni-font-size-title: 40upx;
 $uni-color-subtitle: #555555; // 二级标题颜色
-$uni-font-size-subtitle:36upx;
-$uni-color-paragraph: #3F536E; // 文章段落颜色
-$uni-font-size-paragraph:30upx;
+$uni-font-size-subtitle: 36upx;
+$uni-color-paragraph: #3f536e; // 文章段落颜色
+$uni-font-size-paragraph: 30upx;
+
+/* 字体种类 */
+$uni-font-family: '"Helvetica Neue", Helvetica, Arial, sans-serif,"Microsoft YaHei","微软雅黑", Verdana';
+$uni-font-family-Neue: 'Helvetica Neue';
+$uni-font-family-Helvetica: 'Helvetica';
+$uni-font-family-Arial: 'Arial';
+$uni-font-family-sans: 'sans-serif';
+$uni-font-family-YaHei: 'Microsoft YaHei';
+$uni-font-family-Verdana: 'Verdana';
+
+/*竖线*/
+.vertical-line {
+	display: block;
+	border: 0.5px solid #eee;
+}
+
+/*******************************多列布局***********************/
+/* 多列布局  */
+.div_column_tow {
+	-webkit-column-count: 2;
+	-moz-column-count: 2;
+	column-count: 2;
+}
+.div_column_three {
+	-webkit-column-count: 3;
+	-moz-column-count: 3;
+	column-count: 3;
+}
+.div_column_four {
+	-webkit-column-count: 4;
+	-moz-column-count: 4;
+	column-count: 4;
+}
+.div_column_gap5 {
+	-webkit-column-gap: 10upx;
+	-moz-column-gap: 10upx;
+	column-gap: 10upx;
+}
+.div_column_gap10 {
+	-webkit-column-gap: 20upx;
+	-moz-column-gap: 20upx;
+	column-gap: 20upx;
+}
+.div_column_gap20 {
+	-webkit-column-gap: 40upx;
+	-moz-column-gap: 40upx;
+	column-gap: 40upx;
+}
+.div_column {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: flex;
+}
+//排列方向横向 一行多列
+.flex-direction-row {
+	flex-direction: row;
+	-webkit-flex-direction: row;
+	-ms-flex-direction: row;
+}
+//排列方向纵向  一列多行
+.flex-direction-column {
+	flex-direction: column;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+}
+.justify_content {
+	justify-content: space-between;
+}
+.align_item_top {
+	align-items: flex-start;
+	align-content: flex-start;
+}
+.align_item_center {
+	align-items: center;
+	align-content: center;
+}
+.align_item_bottom {
+	align-items: flex-end;
+	align-content: flex-end;
+}
+
+/* 文字方向 */
+.text_align_center {
+	text-align: center;
+}
+.text_align_right {
+	text-align: right;
+}
+/* 字体 */
+.font_size_14 {
+	font-size: 28upx;
+}
+.font_size_15 {
+	font-size: 30upx;
+}
+.font_size_16 {
+	font-size: 32upx;
+}
+.font_size_18 {
+	font-size: 36upx;
+}
+.font_size_20 {
+	font-size: 40upx !important;
+}
+
+/* 文本粗细 */
+.font_weight_light {
+	font-weight: lighter;
+}
+.font_weight_bold {
+	font-weight: bold;
+}
+.font_weight_bolder {
+	font-weight: bolder;
+}
+
+/* 文本颜色 */
+.uni-text-red {
+	color: $uni-text-color-red;
+}
+
+/* 首行缩进 */
+.text_indent {
+	text-indent: 2em;
+}
