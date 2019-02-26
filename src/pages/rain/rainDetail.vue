@@ -1,0 +1,117 @@
+<template>
+	<view>
+		<view class="banner">
+			<image class="banner-img" :src="dataDetail.img"></image>
+			<view class="banner-title">{{ dataDetail.title }}</view>
+		</view>
+		<view class="article-meta">
+			<!-- <text class="article-author">{{dataDetail.author_name}}</text> -->
+			<text class="article-text">{{ dataDetail.district }}</text>
+			<!-- <text class="article-time">{{dataDetail.published_at}}</text> -->
+		</view>
+		<view class="article-content"><rich-text :nodes="htmlString"></rich-text></view>
+		<!-- #ifdef MP-WEIXIN -->
+		<ad v-if="htmlString" unit-id="adunit-01b7a010bf53d74e"></ad>
+		<!-- #endif -->
+	</view>
+</template>
+
+<script>
+export default {
+	data() {
+		return {
+			dataDetail: {},
+			htmlString: ''
+		};
+	},
+	onLoad(event) {
+		//父页面传递过来的参数，地址栏传参
+		// 目前在某些平台参数会被主动 decode，暂时这样处理。
+		try {
+			this.dataDetail = JSON.parse(decodeURIComponent(event.paramData));
+		} catch (error) {
+			this.dataDetail = JSON.parse(event.paramData);
+		}
+		//获取详情数据
+		//this.getDetail();
+		this.htmlString = this.dataDetail.content;
+		//设置导航栏标题
+		uni.setNavigationBarTitle({
+			title: this.dataDetail.title
+		});
+	},
+	methods: {
+		getDetail() {
+			uni.request({
+				url: 'https://unidemo.dcloud.net.cn/api/news/36kr/' + this.dataDetail.id,
+				success: data => {
+					if (data.statusCode == 200) {
+						this.htmlString = data.data.content
+							.replace(/\\/g, '')
+							.replace(/<img/g, '<img style="display:none;"');
+					}
+				},
+				fail: () => {
+					console.log('fail');
+				}
+			});
+		}
+	}
+};
+</script>
+
+<style>
+page > view {
+	width: 100%;
+}
+.banner {
+	height: 360upx;
+	overflow: hidden;
+	position: relative;
+	background-color: #ccc;
+}
+
+.banner-img {
+	width: 100%;
+}
+
+.banner-title {
+	max-height: 84upx;
+	overflow: hidden;
+	position: absolute;
+	left: 30upx;
+	bottom: 30upx;
+	width: 90%;
+	font-size: 32upx;
+	font-weight: 400;
+	line-height: 42upx;
+	color: white;
+	z-index: 11;
+}
+
+.article-meta {
+	padding: 20upx 40upx;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	color: gray;
+}
+
+.article-text {
+	font-size: 26upx;
+	line-height: 50upx;
+	margin: 0 20upx;
+}
+
+.article-author,
+.article-time {
+	font-size: 30upx;
+}
+
+.article-content {
+	padding: 0 30upx;
+	overflow: hidden;
+	font-size: 30upx;
+	margin-bottom: 30upx;
+}
+</style>

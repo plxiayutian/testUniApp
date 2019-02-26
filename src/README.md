@@ -72,3 +72,51 @@ src	项目的主要源文件部分
 	README.md：项目说明文档
 	service.js：项目服务配置
 	uni.scss： Scss样式文档，不要要@import引入到样式中，也不需要import引入到.vue页面中，需要HBuilder X 安装编译Sass/Scss插件，具体安装在工具->插件安装中，使用方式是在.vue文档中的style标签上加上lang="scss" (<style lang="scss"></style>)，就可以在下面的样式中直接使用uni.scss文档中定义的变量、方法、代码块。
+		
+##自定义原生导航栏
+1. 使用plus.nativeObj.view的api自定义titleNView。
+2. 页面采用nvue，即weex方式制作。
+3. 取消原生导航，使用view自行绘制
+
+###取消原生导航栏后，自己使用HTML自定义组件模拟导航栏，会有很多性能体验问题：
+加载不如原生导航快
+下拉刷新无法从自定义的导航栏组件下面下拉
+必须取消页面的bounce效果，否则滚动到顶时再拖屏幕，在iOS上发现title也被拖下来了。
+滚动条会通顶
+所以除非不得以，不要使用全局取消原生导航栏的做法。
+如必须使用，注意如下几点：
+涉及到导航栏高度的css尽量放置在App.vue里面以提高渲染速度（css渲染顺序：先渲染App.vue里面的css，再渲染页面css）
+状态栏颜色应设置默认颜色，若非必要，不建议修改其颜色
+减少在组件中使用 :style="" 的使用以提高性能
+
+有个高频场景是App首页的title自定义，如果实现的效果很个性化，那么使用plus.nativeObj.view的方案会过于复杂，由于首页并不存在新页面进入立即渲染的压力，所以App首页如果要大幅定制，推荐使用前端view绘制，而不是使用plus.nativeObj.view。
+
+如果把自定义导航封装成组件，虽然多个页面引入方便，但性能下降，因为这种自定义组件的加载是晚于页面基本元素的，会导致新页面进入动画时无法渲染title。所以导航条这种要求在动画期渲染的东西，尽量不要使用自定义组件方式。
+
+##条件编译
+###写法：以 #ifdef 或 #ifndef 加 %PLATFORM% 开头，以 #endif 结尾。
+#ifdef：if defined 仅在某平台存在
+#ifndef：if not defined 除了某平台均存在
+除了支持单个平台的条件编译外，还支持多平台同时编译，使用 || 来分隔平台名称。
+###%PLATFORM% 可取值如下：
+	APP-PLUS	5+App			HTML5+ 规范
+	APP-PLUS-NVUE	5+App nvue	Weex 规范
+	H5	H5	
+	MP-WEIXIN	微信小程序		微信小程序
+	MP-ALIPAY	支付宝小程序		支付宝小程序
+	MP-BAIDU	百度小程序		百度小程序
+	MP-TOUTIAO	头条小程序		头条小程序
+	MP	微信小程序/支付宝小程序/百度小程序/头条小程序	
+###支持的文件
+	.vue
+	.js
+	.css
+	pages.json
+	各预编译语言文件，如：.scss、.less、.stylus、.ts、.pug
+###注意： 条件编译是利用注释实现的，在不同语法里注释写法不一样
+	js使用 // 注释
+	css 使用 /* 注释 */
+	vue/nvue 模板里使用 <!-- 注释 -->；
+	
+不同平台下的特有功能，以及小程序平台的分包，都可以通过 pages.json 的条件编译来更好地实现。这样，就不会在其它平台产生多余的资源，进而减小包体积。
+

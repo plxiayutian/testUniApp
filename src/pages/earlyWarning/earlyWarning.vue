@@ -1,6 +1,6 @@
 <template>
 	<view>
-		雨情信息
+		山洪预警
 	</view>
 </template>
 
@@ -10,10 +10,6 @@
 			return {
 				
 			};
-		},
-		onLoad(option) { //父页面传递过来的参数，地址栏传参
-			console.log(JSON.stringify(option));
-			
 		}
 	}
 </script>

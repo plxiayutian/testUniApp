@@ -6,20 +6,20 @@
             "style" : {
                 "app-plus" : {
                     "titleNView" : {
-                        /* "buttons": [{
-								"text":"\uecad",
-								"fontSize": "22px",
-								"fontSrc":"/static/fonts/iconfont.ttf",
-								"float": "left"
-							},
-							{
-								"text":"\uecad",
-								"fontSize": "22px",
-								"fontSrc":"/static/fonts/iconfont.ttf"
-							}
-						], */
                         "titleText" : "福建省防汛抗旱指挥决策综合平台", //标题文字内容	
-                        "titleSize" : "18px" //标题文字字体大小
+                        "titleSize" : "18px", //标题文字字体大小
+                        "tags" : [
+                            {
+                                "tag" : "img",
+                                "src" : "/static/img/logo.png",
+                                "position" : {
+                                    "left" : "50px",
+                                    "top" : "auto",
+                                    "width" : "30px",
+                                    "height" : "30px"
+                                }
+                            }
+                        ]
                     }
                 }
             }
@@ -69,72 +69,134 @@
         {
             "path" : "pages/typhoon/typhoon",
             "style" : {
-				"navigationBarTitleText" : "台风路径"
-			}
+                "navigationBarTitleText" : "台风路径"
+            }
         },
         {
             "path" : "pages/wind/wind",
             "style" : {
-				"navigationBarTitleText" : "风情信息"
-			}
+                "navigationBarTitleText" : "风情信息"
+            }
         },
         {
             "path" : "pages/satellite/satellite",
             "style" : {
-				"navigationBarTitleText" : "卫星云图"
-			}
+                "navigationBarTitleText" : "卫星云图"
+            }
         },
         {
             "path" : "pages/radar/radar",
             "style" : {
-				"navigationBarTitleText" : "气象雷达"
-			}
+                "navigationBarTitleText" : "气象雷达"
+            }
         },
         {
             "path" : "pages/weekWeather/weekWeather",
             "style" : {
-				"navigationBarTitleText" : "一周天气图"
-			}
+                "navigationBarTitleText" : "一周天气图"
+            }
         },
         {
             "path" : "pages/precipitationForecast/precipitationForecast",
             "style" : {
-				"navigationBarTitleText" : "降水预报图"
-			}
+                "navigationBarTitleText" : "降水预报图"
+            }
         },
         {
             "path" : "pages/rainEquivalent/rainEquivalent",
             "style" : {
-				"navigationBarTitleText" : "雨量等值面"
-			}
+                "navigationBarTitleText" : "雨量等值面"
+            }
         },
         {
             "path" : "pages/weatherForecast/weatherForecast",
             "style" : {
-				"navigationBarTitleText" : "天气预报"
-			}
+                "navigationBarTitleText" : "天气预报"
+            }
         },
         {
             "path" : "pages/numericalForecast/numericalForecast",
             "style" : {
-				"navigationBarTitleText" : "数值预报"
-			}
+                "navigationBarTitleText" : "数值预报"
+            }
         },
+        // 				,"navigationBarTextStyle":"white",  //导航栏字体颜色
+        // 				"app-plus": {  
+        // 					"titleNView": false   //App单独去除原生导航栏,小程序端侧仍保有原生导航栏。
+        // 				}
         {
             "path" : "pages/system/system",
             "style" : {
-				"navigationBarTitleText" : "系统管理"
+                "navigationBarTitleText" : "系统管理"
+            }
+        },
+        {
+            "path" : "pages/typhoon/typhoonDetail",
+            "style" : {
+                "navigationBarTitleText" : "台风预报详情",
+                "app-plus" : {
+                    "titleNView" : {
+                        "type" : "default"	//"default"-默认样式；"transparent"-透明渐变。	
+                    }
+                }
+            }
+        },
+        {
+            "path" : "pages/rain/rainDetail",
+            "style" : {
+                "navigationBarTitleText" : "雨情详情",
+                "app-plus" : {
+                    "titleNView" : {
+                        "type" : "transparent" //"default"-默认样式；"transparent"-透明渐变。	
+                    }
+                }
+            }
+        },
+		/* 预警模块 */
+        {
+            "path" : "pages/earlyWarning/earlyWarning",
+            "style" : {
+				"navigationBarTitleText" : "山洪预警"
 			}
-        }
+        },
+		{
+		    "path" : "pages/earlyWarning/villageEarlyWarning",
+		    "style" : {
+				"navigationBarTitleText" : "村庄预警"
+			}
+		},
+		{
+		    "path" : "pages/earlyWarning/reservoirEarlyWarning",
+		    "style" : {
+				"navigationBarTitleText" : "水库预警"
+			}
+		},
+		{
+		    "path" : "pages/earlyWarning/riverEarlyWarning",
+		    "style" : {
+				"navigationBarTitleText" : "河道预警"
+			}
+		}
     ],
+    // ,"navigationStyle":"custom"  //自微信客户端 7.0.0 起，微信小程序支持取消单独一个页面的原生导航栏，只保留右上角胶囊按钮
     "globalStyle" : {
+        // "navigationStyle":"custom",	//默认是default，即带有原生导航栏,设为custom后，所有页面都没有原生导航;但在微信小程序里，右上角始终都有一个胶囊按钮
         "navigationBarTextStyle" : "white",
         "navigationBarBackgroundColor" : "#1e81d2", //0faeff
         "backgroundColor" : "#1e81d2", //fbf9fe   微信小程序窗口的背景色
         "enablePullDownRefresh" : true //是否开启下拉刷新
-    },
-    "condition" : {
-        //模式配置，仅开发期间生效
+    }
+}
+/* "tabBar":{	//当设置 position 为 top 时，将不会显示 icon; tabBar 中的 list 是一个数组，只能配置最少2个、最多5个 tab，tab 按数组的顺序排序。
+		"list":{
+			"pagePath":"",	//页面路径，必须在 pages 中先定义
+			"text":"",		//tab上按钮文字，在 5+APP 和 H5 平台为非必填
+			"iconPath":"",	//图片路径，icon大小限制为40kb，建议尺寸为 81px * 81px，当postion为top时，此参数无效，不支持网络图片
+			"selectedIconPath":""	//选中时的图片路径，同上
+		},
+		"position": "bottom"
+	},
+    "condition" : {	//启动模式配置，仅开发期间生效，用于模拟直达页面的场景
         "current" : 0, //当前激活的模式(list 的索引项)
         "list" : [
             {
@@ -143,5 +205,32 @@
                 "query" : "" //启动参数，在页面的onLoad函数里面得到
             }
         ]
-    }
-}
+    },
+	"subPackages": [{   //分包加载
+        "root": "pagesA",
+        "pages": [{
+            "path": "list/list",
+            "style": { 
+				
+			}
+        }]
+    }, {
+        "root": "pagesB",
+        "pages": [{
+            "path": "detail/detail",
+            "style": { 
+				
+			}
+        }]
+    }],
+    "preloadRule": {	//分包预载
+        "pagesA/list/list": {
+            "network": "all",
+            "packages": ["__APP__"]
+        },
+        "pagesB/detail/detail": {
+            "network": "all",
+            "packages": ["pagesA"]
+        }
+    } */
+

@@ -82,13 +82,19 @@ $uni-font-family-sans: 'sans-serif';
 $uni-font-family-YaHei: 'Microsoft YaHei';
 $uni-font-family-Verdana: 'Verdana';
 
+/* 预警级别颜色 */
+$ew-level1-color:#e20d0f;	/* 一级预警 */
+$ew-level2-color:#f87a01;	/* 二级预警 */
+$ew-level3-color:#f5db00;	/* 三级预警 */
+$ew-levelnormal-color:#0065e2; 	/* 正常 */
+
+/*******************************样式***********************/
 /*竖线*/
 .vertical-line {
 	display: block;
 	border: 0.5px solid #eee;
 }
 
-/*******************************多列布局***********************/
 /* 多列布局  */
 .div_column_tow {
 	-webkit-column-count: 2;
@@ -193,10 +199,30 @@ $uni-font-family-Verdana: 'Verdana';
 
 /* 文本颜色 */
 .uni-text-red {
-	color: $uni-text-color-red;
+	color: $ew-level1-color;
+}
+.uni-text-orange {
+	color: $ew-level2-color;
+}
+.uni-text-yellow {
+	color: $ew-level3-color;
+}
+.uni-text-blue {
+	color: $ew-levelnormal-color;
 }
 
 /* 首行缩进 */
 .text_indent {
 	text-indent: 2em;
+}
+
+/* 自定义列表框、盒子 */
+.my_list{
+	margin-top: 30upx;
+}
+.my_list_title{
+	min-height: 50upx;
+    padding: 10upx 30upx;
+	font-weight: bold;
+	font-size: 36upx;
 }
