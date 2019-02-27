@@ -64,6 +64,7 @@ export default {
 /* uni-app默认全局使用flex布局。因为flex布局有利于跨更多平台，尤其是采用原生渲染的平台。如不了解flex布局，请参考http://www.w3.org/TR/css3-flexbox/。如不使用flex布局，请删除或注释掉本行。*/
 body,
 page {
+	height: 100%;
 	min-height: 100%;
 	display: flex;
 }
@@ -94,5 +95,8 @@ swan-template {
 .uni-page-head-bd {
 	left: 60upx !important;
 	right: 60upx !important;
+}
+.uni-page-head .uni-page-head__title{
+	font-weight: 100;
 }
 </style>

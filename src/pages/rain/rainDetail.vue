@@ -25,6 +25,7 @@ export default {
 		};
 	},
 	onLoad(event) {
+		console.log(JSON.stringify(event));
 		//父页面传递过来的参数，地址栏传参
 		// 目前在某些平台参数会被主动 decode，暂时这样处理。
 		try {

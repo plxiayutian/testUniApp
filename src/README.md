@@ -120,3 +120,29 @@ src	项目的主要源文件部分
 	
 不同平台下的特有功能，以及小程序平台的分包，都可以通过 pages.json 的条件编译来更好地实现。这样，就不会在其它平台产生多余的资源，进而减小包体积。
 
+##使用代码块直接创建组件模板
+###Tag代码块   （在 template 标签内输入代码块名回车）
+	uButton
+	uCheckbox
+	uGrid
+	uList
+	uListMedia
+	uRadio
+	uSwiper
+
+###JS代码块		（在 script 标签内输入代码块名回车）
+	uRequest
+	uGetLocation
+	uShowToast
+	uShowLoading
+	uHideLoading
+	uShowModal
+	uShowActionSheet
+	uNavigateTo
+	uNavigateBack
+	uRedirectTo
+	uStartPullDownRefresh
+	uStopPullDownRefresh
+	uLogin
+	uShare
+	uPay

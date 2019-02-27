@@ -73,7 +73,7 @@
 					>
 						<view class="uni-list-cell-navigate uni-navigate-right uni-media-list ">
 							<view class="uni-media-list-logo">
-								<image :src="value.img"></image>
+								<image class="image" lazy-load :src="value.img"></image>
 							</view>
 							<view class="uni-media-list-body flex-direction-row list_body">
 								<view class="list_body_left">
@@ -101,8 +101,9 @@
 </template>
 
 <script>
-import uniGrid from '@dcloudio/uni-ui/lib/uni-grid/uni-grid.vue';
-import uniLoadMore from '../../components/uni-load-more.vue';
+// import uniGrid from '@dcloudio/uni-ui/lib/uni-grid/uni-grid.vue';
+import uniGrid from '@/components/uni-ui/lib/uni-grid/uni-grid.vue';
+import uniLoadMore from '@/components/uni-load-more.vue';
 
 import { gState, gMutations } from 'vuex';
 
@@ -209,7 +210,7 @@ export default {
 	methods: {
 		//宫格点击事件
 		uniGridClick(data) {
-			console.log(JSON.stringify(data));
+			// console.log(JSON.stringify(data));
 			if (data.index || data.index == 0) {
 				const index = Number(data.index);
 				switch (index) {
