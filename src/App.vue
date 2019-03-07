@@ -49,17 +49,17 @@ export default {
 @import './common/uni.css';
 
 /* 引入字体图标fontawesome */
-/* @font-face {
-		font-family: fontawesome;
-		src: url(static/fonts/fontawesome-webfont.woff);
-	} */
+@font-face {
+	font-family: fontawesome;
+	src: url(static/fonts/fontawesome-webfont.woff);
+}
 
 /* 引入字体图标iconfont */
 /* iconfont，这个名字是保留字，不能作为外部引入的字体库的名字，需要调整为自定义的名称。 */
-/* @font-face {
+@font-face {
 	font-family: aliconfont;
 	src: url(static/fonts/iconfont.woff);
-} */
+}
 
 /* uni-app默认全局使用flex布局。因为flex布局有利于跨更多平台，尤其是采用原生渲染的平台。如不了解flex布局，请参考http://www.w3.org/TR/css3-flexbox/。如不使用flex布局，请删除或注释掉本行。*/
 body,
@@ -75,15 +75,16 @@ page {
 	height: 100%;
 	display: block;
 }
-
 swan-template {
 	width: 100%;
 	min-height: 100%;
 	display: flex;
 }
-
 /* #endif */
 
+.page-content{
+	width: 100%;
+}
 .content {
 	display: flex;
 	flex: 1;
@@ -91,12 +92,11 @@ swan-template {
 	background-color: #efeff4;
 	padding: 20upx;
 }
-
 .uni-page-head-bd {
 	left: 60upx !important;
 	right: 60upx !important;
 }
-.uni-page-head .uni-page-head__title{
+.uni-page-head .uni-page-head__title {
 	font-weight: 100;
 }
 </style>

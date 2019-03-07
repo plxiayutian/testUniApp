@@ -1,5 +1,5 @@
 <template>
-	<view>
+	<view class="page-content">
 		<!-- 九宫格 -->
 		<uni-grid
 			:data="dataImg"
@@ -129,24 +129,23 @@ export default {
 		};
 	},
 	//监听页面加载，其参数为上个页面传递的数据，参数类型为Object（用于页面传参)
-	onLoad(data) {	//可以在这里调用页面初始化接口，获取数据，初始化页面
+	onLoad(data) {
+		//可以在这里调用页面初始化接口，获取数据，初始化页面
 		this.dataImg = [
-			{ image: 'https://img-cdn-qiniu.dcloud.net.cn/img/shu.png', text: '汛情摘要' },
-			{ image: 'https://img-cdn-qiniu.dcloud.net.cn/img/lindang.png', text: '雨情信息' },
-			{ image: 'https://img-cdn-qiniu.dcloud.net.cn/img/laoren.png', text: '水情信息' },
-			{ image: 'https://img-cdn-qiniu.dcloud.net.cn/img/liwu.png', text: '台风路径' },
-			{ image: 'https://img-cdn-qiniu.dcloud.net.cn/img/maozi.png', text: '风情信息' },
-			{ image: 'https://img-cdn-qiniu.dcloud.net.cn/img/shoutao.png', text: '卫星云图' },
-			{ image: 'https://img-cdn-qiniu.dcloud.net.cn/img/shu.png', text: '气象雷达' },
-			{
-				image: 'https://img-cdn-qiniu.dcloud.net.cn/img/lindang.png',
-				text: '一周天气图'
-			},
-			{ image: 'https://img-cdn-qiniu.dcloud.net.cn/img/liwu.png', text: '降水预报图' },
-			{ image: 'https://img-cdn-qiniu.dcloud.net.cn/img/maozi.png', text: '雨量等值面' },
-			{ image: 'https://img-cdn-qiniu.dcloud.net.cn/img/shoutao.png', text: '天气预报' },
-			{ image: 'https://img-cdn-qiniu.dcloud.net.cn/img/shu.png', text: '数值预报' },
-			{ image: 'https://img-cdn-qiniu.dcloud.net.cn/img/lindang.png', text: '系统管理' }
+			{ image: '/static/img/icon/icon_earlyWarning.png', text: '山洪预警' },
+			{ image: '/static/img/icon/icon_lyrical.png', text: '汛情摘要' },
+			{ image: '/static/img/icon/icon_rain.png', text: '雨情信息' },
+			{ image: '/static/img/icon/icon_water.png', text: '水情信息' },
+			{ image: '/static/img/icon/icon_typhoon.png', text: '台风路径' },
+			{ image: '/static/img/icon/icon_wind.png', text: '风情信息' },
+			{ image: '/static/img/icon/icon_satellite.png', text: '卫星云图' },
+			{ image: '/static/img/icon/icon_radar.png', text: '气象雷达' },
+			{ image: '/static/img/icon/icon_weekWeather.png', text: '一周天气图' },
+			{ image: '/static/img/icon/icon_precipitationForecast.png', text: '降水预报图' },
+			{ image: '/static/img/icon/icon_rainEquivalent.png', text: '雨量等值面' },
+			{ image: '/static/img/icon/icon_weatherForecast.png', text: '天气预报' },
+			{ image: '/static/img/icon/icon_numericalForecast.png', text: '数值预报' },
+			{ image: '/static/img/icon/icon_system.png', text: '系统管理' }
 		];
 		this.typhoonList = {
 			txtContent: "今年第1号台风'帕布'(热带风暴级)已于今天(5日)上午11点中前后从泰国南部"
@@ -215,44 +214,47 @@ export default {
 				const index = Number(data.index);
 				switch (index) {
 					case 0:
-						uni.navigateTo({ url: '/pages/lyrical/lyrical' }); //汛情摘要
+						uni.navigateTo({ url: '/pages/earlyWarning/earlyWarning' }); //山洪预警
 						break;
 					case 1:
-						uni.navigateTo({ url: '/pages/rain/rain' }); //雨情信息
+						uni.navigateTo({ url: '/pages/lyrical/lyrical' }); //汛情摘要
 						break;
 					case 2:
-						uni.navigateTo({ url: '/pages/water/water' }); //水情信息
+						uni.navigateTo({ url: '/pages/rain/rain' }); //雨情信息
 						break;
 					case 3:
-						uni.navigateTo({ url: '/pages/typhoon/typhoon' }); //台风路径
+						uni.navigateTo({ url: '/pages/water/water' }); //水情信息
 						break;
 					case 4:
-						uni.navigateTo({ url: '/pages/wind/wind' }); //风情信息
+						uni.navigateTo({ url: '/pages/typhoon/typhoon' }); //台风路径
 						break;
 					case 5:
-						uni.navigateTo({ url: '/pages/satellite/satellite' }); //卫星云图
+						uni.navigateTo({ url: '/pages/wind/wind' }); //风情信息
 						break;
 					case 6:
-						uni.navigateTo({ url: '/pages/radar/radar' }); //气象雷达
+						uni.navigateTo({ url: '/pages/satellite/satellite' }); //卫星云图
 						break;
 					case 7:
-						uni.navigateTo({ url: '/pages/weekWeather/weekWeather' }); //一周天气图
+						uni.navigateTo({ url: '/pages/radar/radar' }); //气象雷达
 						break;
 					case 8:
+						uni.navigateTo({ url: '/pages/weekWeather/weekWeather' }); //一周天气图
+						break;
+					case 9:
 						uni.navigateTo({
 							url: '/pages/precipitationForecast/precipitationForecast' //降水预报图
 						});
 						break;
-					case 9:
+					case 10:
 						uni.navigateTo({ url: '/pages/rainEquivalent/rainEquivalent' }); //雨量等值面
 						break;
-					case 10:
+					case 11:
 						uni.navigateTo({ url: '/pages/weatherForecast/weatherForecast' }); //天气预报
 						break;
-					case 11:
+					case 12:
 						uni.navigateTo({ url: '/pages/numericalForecast/numericalForecast' }); //数值预报
 						break;
-					case 12:
+					case 13:
 						uni.navigateTo({ url: '/pages/system/system' }); //系统管理
 						break;
 					default:
@@ -269,20 +271,23 @@ export default {
 			});
 		},
 		//山洪预警列表点击事件
-		floodWarningListClick:function(option) {
-			if(option.type==1){  //村庄
+		floodWarningListClick: function(option) {
+			if (option.type == 1) {
+				//村庄
 				uni.navigateTo({
 					url:
 						'/pages/earlyWarning/villageEarlyWarning?paramData=' +
 						encodeURIComponent(JSON.stringify(option))
 				});
-			}else if(option.type==2){	//水库
+			} else if (option.type == 2) {
+				//水库
 				uni.navigateTo({
 					url:
 						'/pages/earlyWarning/reservoirEarlyWarning?paramData=' +
 						encodeURIComponent(JSON.stringify(option))
 				});
-			}else if(option.type==3){	//河道
+			} else if (option.type == 3) {
+				//河道
 				uni.navigateTo({
 					url:
 						'/pages/earlyWarning/riverEarlyWarning?paramData=' +
@@ -298,13 +303,14 @@ export default {
 			});
 		}
 	},
-	onReachBottom() {  //滚动加载事件
+	onReachBottom() {
+		//滚动加载事件
 		if (this.loadingType !== 0) {
 			return;
 		}
 		this.loadingType = 1;
 		let rainList = [],
-			length = 10;  	//每次滚动加载的数量
+			length = 10; //每次滚动加载的数量
 		for (let i = 0; i < length; i++) {
 			rainList.push({
 				id: 3,
@@ -322,6 +328,30 @@ export default {
 			this.rainList = this.rainList.concat(rainList);
 			this.loadingType = 0;
 		}, 800);
+	},
+	onNavigationBarButtonTap: function(e) {
+		//导航栏按钮
+		console.log(JSON.stringify(e));
+		switch (e.index) {
+			case 0:
+				// #ifdef APP-PLUS
+				uni.scanCode({
+					success: function(res) {
+						// onlyFromCamera: true, //只允许通过相机扫码
+						uni.showToast({
+							title: '扫码成功',
+							mask: false,
+							duration: 1500
+						});
+						console.log('条码类型：' + res.scanType);
+						console.log('条码内容：' + res.result);
+					}
+				});
+				// #endif
+				break;
+			default:
+				break;
+		}
 	}
 };
 </script>
@@ -373,7 +403,7 @@ export default {
 .list_body_right > text {
 	margin-left: 16upx;
 }
-.text_detail{
+.text_detail {
 	width: 120upx;
 	text-align: center;
 }
