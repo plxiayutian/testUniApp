@@ -77,7 +77,8 @@
 		top: 0;
 		left: 0;
 		width: 100%;
-		height: 100upx;
+		/* height: 100upx;*/
+		height: 0;
 		line-height: 100upx;
 		text-align: center;
 	}

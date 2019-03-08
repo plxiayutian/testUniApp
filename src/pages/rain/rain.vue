@@ -1,18 +1,24 @@
 <template>
 	<view class="page-content">
 		<!-- 顶部popup -->
-		<uni-popup class="top_popup" :show="showPopupTop" type="top" v-on:hidePopup="hidePopup">
+		<uni-popup
+			class="top_popup"
+			:show="showPopupTop"
+			type="top"
+			v-on:hidePopup="hidePopup"
+			:style="{ display: displayPop }"
+		>
 			<view class="uni-flex uni-column">
-				<view class="flex-item" @click="onMenuItemClick">
-					<icon class="uni-icon uni-icon-refreshempty" size="26" />
+				<view class="flex-item" @click="onMenuItemClick(1)">
+					<view class="uni-icon uni-icon-refreshempty"></view>
 					<text>时间筛选</text>
 				</view>
-				<view class="flex-item" @click="onMenuItemClick">
-					<icon class="uni-icon uni-icon-map" size="26" />
+				<view class="flex-item" @click="onMenuItemClick(2)">
+					<view class="uni-icon uni-icon-map" size="32"></view>
 					<text>地图模式</text>
 				</view>
-				<view class="flex-item" @click="onMenuItemClick">
-					<icon class="uni-icon uni-icon-location" size="26"></icon>
+				<view class="flex-item" @click="onMenuItemClick(3)">
+					<view class="uni-icon uni-icon-location" size="32"></view>
 					<text>区域选择</text>
 				</view>
 			</view>
@@ -33,44 +39,119 @@
 			</scroll-view>
 			<swiper :current="tabIndex" class="swiper-box" duration="300" @change="changeTab">
 				<!-- 选项内容 -->
-				<swiper-item v-for="(tab, index1) in dataList" :key="index1">
-					<scroll-view class="list" scroll-y @scrolltolower="loadMore(index1)">
-						<block v-for="(dataListItem, index2) in tab.data" :key="index2">
-							<!-- 列表 -->
-							<view class="uni-list">
+				<swiper-item>
+					<scroll-view class="list" scroll-y @scrolltolower="loadMore(1)">
+						<!-- 列表 -->
+						<view class="uni-list">
+							<block v-for="(item, index1) in dataList1.data" :key="index1">
 								<view
 									class="uni-list-cell"
 									hover-class="uni-list-cell-hover"
-									@click="goDetail(dataListItem)"
+									@click="goDetail(item)"
 								>
 									<view class="uni-media-list">
-										<image
-											class="uni-media-list-logo"
-											:src="dataListItem.img"
-										></image>
+										<image class="uni-media-list-logo" :src="item.img"></image>
 										<view
 											class="uni-list-cell-navigate uni-navigate-right list_body"
 										>
 											<view class="list_body_left">
-												<text>{{ dataListItem.title }}</text>
+												<text>{{ item.title }}</text>
 											</view>
 											<view class="list_body_content">
 												<text class="uni-ellipsis">
-													降雨量{{ dataListItem.rainfall }}
+													降雨量{{ item.rainfall }}
 												</text>
 											</view>
 											<view class="list_body_right">
-												{{ dataListItem.count }}个测站
+												{{ item.count }}个测站
 											</view>
 										</view>
 									</view>
 								</view>
-							</view>
-						</block>
+							</block>
+						</view>
 						<view class="uni-tab-bar-loading">
 							<uni-load-more
-								:loadingType="tab.loadingType"
-								:contentText="loadingText"
+								:loadingType="dataList1.loadingType"
+								:contentText="dataList1.loadingText"
+							></uni-load-more>
+						</view>
+					</scroll-view>
+				</swiper-item>
+				<swiper-item>
+					<scroll-view class="list" scroll-y @scrolltolower="loadMore(2)">
+						<!-- 列表 -->
+						<view class="uni-list">
+							<block v-for="(item, index1) in dataList2.data" :key="index1">
+								<view
+									class="uni-list-cell"
+									hover-class="uni-list-cell-hover"
+									@click="goDetail(item)"
+								>
+									<view class="uni-media-list">
+										<image class="uni-media-list-logo" :src="item.img"></image>
+										<view
+											class="uni-list-cell-navigate uni-navigate-right list_body"
+										>
+											<view class="list_body_left">
+												<text>{{ item.title }}</text>
+											</view>
+											<view class="list_body_content">
+												<text class="uni-ellipsis">
+													降雨量{{ item.rainfall }}
+												</text>
+											</view>
+											<view class="list_body_right">
+												{{ item.count }}个测站
+											</view>
+										</view>
+									</view>
+								</view>
+							</block>
+						</view>
+						<view class="uni-tab-bar-loading">
+							<uni-load-more
+								:loadingType="dataList2.loadingType"
+								:contentText="dataList2.loadingText"
+							></uni-load-more>
+						</view>
+					</scroll-view>
+				</swiper-item>
+				<swiper-item>
+					<scroll-view class="list" scroll-y @scrolltolower="loadMore(3)">
+						<!-- 列表 -->
+						<view class="uni-list">
+							<block v-for="(item, index1) in dataList3.data" :key="index1">
+								<view
+									class="uni-list-cell"
+									hover-class="uni-list-cell-hover"
+									@click="goDetail(item)"
+								>
+									<view class="uni-media-list">
+										<image class="uni-media-list-logo" :src="item.img"></image>
+										<view
+											class="uni-list-cell-navigate uni-navigate-right list_body"
+										>
+											<view class="list_body_left">
+												<text>{{ item.title }}</text>
+											</view>
+											<view class="list_body_content">
+												<text class="uni-ellipsis">
+													降雨量{{ item.rainfall }}
+												</text>
+											</view>
+											<view class="list_body_right">
+												{{ item.count }}个测站
+											</view>
+										</view>
+									</view>
+								</view>
+							</block>
+						</view>
+						<view class="uni-tab-bar-loading">
+							<uni-load-more
+								:loadingType="dataList3.loadingType"
+								:contentText="dataList3.loadingText"
 							></uni-load-more>
 						</view>
 					</scroll-view>
@@ -90,38 +171,102 @@ export default {
 	},
 	data() {
 		return {
-			loadingText: {
-				contentdown: '上拉显示更多',
-				contentrefresh: '正在加载...',
-				contentnomore: '没有更多数据了'
-			},
 			scrollLeft: 0, //当前tab距左边的距离
 			isClickChange: false, //是否点击切换
 			tabIndex: 0, //当前tab的索引
 			showPopupTop: false, //顶部popup的状态
+			displayPop: 'none',
 			tabBars: [
 				{
 					name: '政区统计',
-					id: 'ZQ'
+					id: 'tab1'
 				},
 				{
 					name: '降雨统计',
-					id: 'JY'
+					id: 'tab2'
 				},
 				{
 					name: '各县最大统计',
-					id: 'GXZD'
+					id: 'tab3'
 				}
 			],
-			dataList: [{}, {}, {}], //列表数据
-			dataZQ: [], //政区统计
-			dataJY: [], //降雨统计
-			dataGXZD: [] //各县最大统计
+			dataList: [],
+			dataList1: {
+				loadingType: 1,
+				loadingText: {
+					contentdown: '上拉显示更多',
+					contentrefresh: '正在加载...',
+					contentnomore: '没有更多数据了'
+				},
+				data: null //政区统计
+			},
+			dataList2: {
+				loadingType: 1,
+				loadingText: {
+					contentdown: '上拉显示更多',
+					contentrefresh: '正在加载...',
+					contentnomore: ''
+				},
+				data: null //政区统计
+			},
+			dataList3: {
+				loadingType: 1,
+				loadingText: {
+					contentdown: '上拉显示更多',
+					contentrefresh: '正在加载...',
+					contentnomore: '没有更多数据了'
+				},
+				data: null //政区统计
+			}
 		};
 	},
 	//父页面传递过来的参数，地址栏传参
 	onLoad: function(option) {
-		this.dataJY = [
+		this.dataList1.data = [
+			{
+				id: 0,
+				title: '特大暴雨',
+				img: '/static/img/icon/icon_rain.png',
+				rainfall: '250mm以上',
+				count: 2
+			},
+			{
+				id: 1,
+				title: '大暴雨',
+				img: '/static/img/icon/icon_rain.png',
+				rainfall: '100~249.9mm',
+				count: 7
+			},
+			{
+				id: 2,
+				title: '暴雨',
+				img: '/static/img/icon/icon_rain.png',
+				rainfall: '50~99.9mm',
+				count: 11
+			},
+			{
+				id: 3,
+				title: '大雨',
+				img: '/static/img/icon/icon_rain.png',
+				rainfall: '25-24.9mm',
+				count: 15
+			},
+			{
+				id: 4,
+				title: '中雨',
+				img: '/static/img/icon/icon_rain.png',
+				rainfall: '10-24.9mm',
+				count: 25
+			},
+			{
+				id: 5,
+				title: '小雨',
+				img: '/static/img/icon/icon_rain.png',
+				rainfall: '0-9.9mm',
+				count: 29
+			}
+		];
+		this.dataList2.data = [
 			{
 				id: 0,
 				title: '特大暴雨',
@@ -165,25 +310,56 @@ export default {
 				count: 29
 			}
 		];
-		this.dataZQ = this.dataJY;
-		this.dataGXZD = this.dataJY;
-		this.dataList = [
+		this.dataList3.data = [
 			{
-				loadingType: 2,
-				data: this.dataZQ
+				id: 0,
+				title: '特大暴雨',
+				img: '/static/img/icon/icon_wind.png',
+				rainfall: '250mm以上',
+				count: 2
 			},
 			{
-				loadingType: 1,
-				data: this.dataJY
+				id: 1,
+				title: '大暴雨',
+				img: '/static/img/icon/icon_wind.png',
+				rainfall: '100~249.9mm',
+				count: 7
 			},
 			{
-				loadingType: 1,
-				data: this.dataGXZD
+				id: 2,
+				title: '暴雨',
+				img: '/static/img/icon/icon_wind.png',
+				rainfall: '50~99.9mm',
+				count: 11
+			},
+			{
+				id: 3,
+				title: '大雨',
+				img: '/static/img/icon/icon_wind.png',
+				rainfall: '25-24.9mm',
+				count: 15
+			},
+			{
+				id: 4,
+				title: '中雨',
+				img: '/static/img/icon/icon_wind.png',
+				rainfall: '10-24.9mm',
+				count: 25
+			},
+			{
+				id: 5,
+				title: '小雨',
+				img: '/static/img/icon/icon_wind.png',
+				rainfall: '0-9.9mm',
+				count: 29
 			}
 		];
-		// console.log(JSON.stringify(this.dataList));
+		this.dataList.push(this.dataList1);
+		this.dataList.push(this.dataList2);
+		this.dataList.push(this.dataList3);
 	},
 	methods: {
+		//详情页
 		goDetail(option) {
 			uni.navigateTo({
 				url:
@@ -191,12 +367,14 @@ export default {
 					encodeURIComponent(JSON.stringify(option))
 			});
 		},
+		//滚动加载
 		loadMore(e) {
 			this.dataList[e].loadingType = 1;
 			setTimeout(() => {
 				this.addData(e);
 			}, 1200);
 		},
+		//数据动态加载
 		addData(e) {
 			if (this.dataList[e].data.length > 30) {
 				this.dataList[e].loadingType = 2;
@@ -207,6 +385,7 @@ export default {
 			}
 			this.dataList[e].loadingType = 1;
 		},
+		//tab切换
 		async changeTab(e) {
 			let index = e.detail.current;
 			if (this.isClickChange) {
@@ -234,8 +413,8 @@ export default {
 			this.isClickChange = false;
 			this.tabIndex = index; //一旦访问data就会出问题
 		},
+		//得到元素的size
 		getElSize(id) {
-			//得到元素的size
 			return new Promise((res, rej) => {
 				uni.createSelectorQuery()
 					.select('#' + id)
@@ -251,8 +430,8 @@ export default {
 					.exec();
 			});
 		},
+		//点击tab-bar
 		async tapTab(index) {
-			//点击tab-bar
 			if (this.tabIndex === index) {
 				return false;
 			} else {
@@ -267,15 +446,51 @@ export default {
 		//统一的关闭popup方法
 		hidePopup: function() {
 			this.showPopupTop = false;
+			// #ifdef H5
+			this.displayPop = 'none';
+			// #endif
 		},
 		//展示顶部 popup
-		showTopPopup: function() {
-			this.hidePopup();
+		showTopPopup: function(e) {
 			this.showPopupTop = true;
+			// #ifdef H5
+			this.displayPop = 'block';
+			// #endif
 		},
 		//菜单列表栏目点击事件
-		onMenuItemClick:function(e){
-			console.log(JSON.stringify(e));
+		onMenuItemClick: function(index) {
+			// #ifndef H5
+			switch (index) {
+				case 1:
+					plus.nativeUI.alert('时间筛选');
+
+					break;
+				case 2:
+					plus.nativeUI.alert('地图模式');
+					break;
+				case 3:
+					plus.nativeUI.alert('区域选择');
+					break;
+				default:
+					break;
+			}
+			// #endif
+
+			// #ifdef H5
+			switch (index) {
+				case 1:
+					alert('时间筛选');
+					break;
+				case 2:
+					alert('地图模式');
+					break;
+				case 3:
+					alert('区域选择');
+					break;
+				default:
+					break;
+			}
+			// #endif
 			this.hidePopup();
 		}
 	},
@@ -355,21 +570,48 @@ export default {
 	margin-right: 16upx;
 }
 
-.uni-popup-top,.top_popup{
+/* #ifndef H5 */
+.uni-popup-top {
 	height: auto;
-	width: 290upx;
+	width: 240upx;
 	left: inherit;
 	right: 0;
 	color: #fff;
-	background-color: #0066CC;
+	background-color: #0066cc;
+	-webkit-border-radius: 10upx;
+	-moz-border-radius: 10upx;
+	border-radius: 10upx;
+	padding-bottom: 20upx;
+}
+.top_popup .flex-item {
+	line-height: 1.5;
+	font-size: 36upx;
+}
+/* #endif */
+
+/* #ifdef H5*/
+.top_popup {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 240upx;
+	height: 200upx;
+	z-index: 100;
+	display: none;
+	color: #fff;
+	background-color: #0066cc;
 	-webkit-border-radius: 10upx;
 	-moz-border-radius: 10upx;
 	border-radius: 10upx;
 }
-.top_popup .flex-item{
+.uni-popup-top {
+	height: 0 !important;
+}
+.top_popup .flex-item {
 	font-size: 36upx;
 }
-.top_popup .flex-item .uni-icon{
+/* #endif */
+.top_popup .flex-item .uni-icon {
 	margin-right: 20upx;
 }
 </style>
