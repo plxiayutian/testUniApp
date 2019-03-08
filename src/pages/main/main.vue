@@ -4,6 +4,7 @@
 		<uni-grid
 			:data="dataImg"
 			show-border="false"
+			class="uniGridMenu"
 			column-num="4"
 			click="{index:Number}"
 			v-on:click="uniGridClick"

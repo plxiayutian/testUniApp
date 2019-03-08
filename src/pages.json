@@ -68,18 +68,24 @@
 						}]
 					}
 				}
-				/* ,
-								"h5": {
-									"titleNView": {
-										"titleText": "雨情信息"
-									}
-								} */
 			}
 		},
 		{
 			"path": "pages/water/water",
 			"style": {
-				"navigationBarTitleText": "水情信息"
+				// "navigationBarTitleText": "水情信息",
+				"app-plus": {
+					"titleNView": {
+						"titleText": "水情信息",
+						"buttons": [{
+							"text": "\ueb8c", //原生标题栏增加分享按钮，点击事件可通过页面的 onNavigationBarButtonTap 函数进行监听
+							"fontSrc": "/static/fonts/iconfont.woff",
+							"fontSize": "24px",
+							// "type": "menu", //按钮类型
+							"float": "right" //按钮位置
+						}]
+					}
+				}
 			}
 		},
 		{

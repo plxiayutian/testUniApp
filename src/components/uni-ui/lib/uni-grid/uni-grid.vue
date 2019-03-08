@@ -82,6 +82,7 @@
 
 <style lang="scss">
 	.uni-grid {
+		padding-top: 20upx;
 		position: relative;
 		display: flex;
 		flex-direction: column;
@@ -208,5 +209,10 @@
 				margin-left: 12upx;
 			}
 		}
+	}
+	
+	.uni-grid-item-image{
+		height: $uni-img-size-lger;
+		width: $uni-img-size-lger;
 	}
 </style>
