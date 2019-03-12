@@ -1,1 +1,5 @@
-src/core/helpers/html-parser.js
+*.svn
+/dist
+/node_modules
+/src/node_modules
+/src/unpackage

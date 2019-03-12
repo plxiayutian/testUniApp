@@ -1,0 +1,148 @@
+<template>
+	<view class="page-content content">
+		<view class="card_item">
+			<view class="title">【雨情】</view>
+			<text>{{ data.timeInterval ? data.timeInterval + ',' : '' }}全省降水情况统计：</text>
+			<view class="list_table">
+				<view class="uni-list-cell-divider list_table_header">
+					<view class="list_left">量级(mm)</view>
+					<view class="list_right">县数</view>
+				</view>
+				<view v-for="(item, index) in data.allProvince">
+					<view class="uni-list-cell" hover-class="uni-list-cell-hover">
+						<view class="list_left">{{ item.rainfall }}</view>
+						<view class="list_right">{{ item.count }}</view>
+					</view>
+				</view>
+			</view>
+			<text>
+				全省有{{ data.allCounty }}个县(市)数发生降雨，最大降雨出现在{{
+					data.largestCounty
+				}}，累计雨量为{{ data.rainfall }}毫米
+			</text>
+			<view>雨量等值面:</view>
+			<view><image class="map_rainfall" src="/static/img/files/map1.png"></image></view>
+		</view>
+		<view class="card_item">
+			<view class="title">【水情】</view>
+			<view class="uni-list">
+				<block v-for="(item, index) in waterData" :key="index">
+					<view class="uni-list-cell" hover-class="uni-list-cell-hover">
+						<view class="uni-list-cell-navigate">
+							<text class="font_weight_bold">{{ item.name }}</text>
+							<text class="uni-text-red">({{ item.count }}个)</text>
+							<uni-badge text="" type="danger"></uni-badge>
+						</view>
+					</view>
+				</block>
+			</view>
+		</view>
+		<view class="card_item">
+			<view class="title">【天气预报】</view>
+			<view>
+				{{weatherData.length>0?weatherData.content:"暂无天气预报数据"}}
+			</view>
+		</view>
+	</view>
+</template>
+
+<script>
+import uniBadge from '@/components/uni-badge.vue';
+export default {
+	components: {
+		uniBadge
+	},
+	data() {
+		return {
+			data: {},
+			waterData: [],
+			weatherData:[],
+			num: 5
+		};
+	},
+	//父页面传递过来的参数，地址栏传参
+	onLoad: function(option) {
+		// uni.startPullDownRefresh(); //下拉刷新加载动画
+		this.getData();
+	},
+	methods: {
+		//初始化数据获取
+		getData: function() {
+			// 			uni.request({
+			// 				url: 'https://demo.hcoder.net/index.php?user=hcoder&pwd=hcoder&m=list1&page=1',
+			// 				method: 'GET',
+			// 				success: function(res){
+			var data = {
+				allProvince: [
+					{ rainfall: '0至10', count: 0 },
+					{ rainfall: '10至25', count: 0 },
+					{ rainfall: '25至50', count: 0 },
+					{ rainfall: '50至100', count: 1 },
+					{ rainfall: '100至250', count: 2 },
+					{ rainfall: '250以上', count: 57 }
+				],
+				timeInterval: '12日6时0分至12日15时46分',
+				allCounty: 60,
+				largestCounty: '宁化县',
+				rainfall: '37.6',
+				cbz: 0,
+				cjj: 0,
+				czc: 0,
+				cxx: 0,
+				ckx: 0
+			};
+			this.data = data;
+			this.waterData = [];
+			this.waterData.push({ name: '河道超保证', count: data.cbz });
+			this.waterData.push({ name: '河道超警戒', count: data.cjj });
+			this.waterData.push({ name: '河道超正常', count: data.czc });
+			this.waterData.push({ name: '河道超汛限', count: data.cxx });
+			this.waterData.push({ name: '河道超控蓄', count: data.ckx });
+			uni.stopPullDownRefresh(); //停止下拉刷新动画
+			// 				}
+			// 			});
+		}
+	},
+	//下拉刷新事件
+	onPullDownRefresh() {
+		this.getData();
+	}
+};
+</script>
+
+<style lang="scss">
+.card_item {
+	margin-top: 20upx;
+}
+.list_table {
+	text-align: center;
+	background-color: #fff;
+}
+.list_table_header {
+	background-color: #1e81d2;
+	color: #fff;
+	font-weight: bold;
+	height: 76upx;
+	padding: 0;
+}
+.list_table_header>view {
+	line-height: 76upx !important;
+}
+.list_table .uni-list-cell uni-view {
+	line-height: 60upx;
+}
+.list_table .list_left {
+	width: 70%;
+}
+.list_table .list_right {
+	border-left: 1px solid #ddd;
+	width: 30%;
+}
+.title {
+	font-weight: bold;
+	line-height: 60px;
+}
+.map_rainfall {
+	width: 100%;
+}
+</style>
