@@ -47,27 +47,16 @@ export default {
 <style>
 /* uni.css - 通用组件、模板样式库，可以当作一套ui库应用 */
 @import './common/uni.css';
-
-/* 引入字体图标fontawesome */
-@font-face {
-	font-family: fontawesome;
-	src: url(static/fonts/fontawesome-webfont.woff);
-}
-
-/* 引入字体图标iconfont */
-/* iconfont，这个名字是保留字，不能作为外部引入的字体库的名字，需要调整为自定义的名称。 */
-@font-face {
-	font-family: aliconfont;
-	src: url(static/fonts/iconfont.woff);
-}
+@import './common/iconfont.css';
+@import './common/font-awesome.min.css';
 
 /* uni-app默认全局使用flex布局。因为flex布局有利于跨更多平台，尤其是采用原生渲染的平台。如不了解flex布局，请参考http://www.w3.org/TR/css3-flexbox/。如不使用flex布局，请删除或注释掉本行。*/
 body,
-page {    /* uni-page */
+page {
+	/* uni-page */
 	height: 100%;
 	min-height: 100%;
 	display: flex;
-	background-color: #efeff4;
 }
 
 /* #ifdef MP-BAIDU */
@@ -84,9 +73,10 @@ swan-template {
 /* #endif */
 
 /* uni-page-body */
-uni-page-body {}
+uni-page-body {
+}
 
-.page-content{
+.page-content {
 	width: 100%;
 }
 .uni-page-head-bd {
@@ -105,69 +95,69 @@ uni-page-body {}
 
 /* 登录、注册、找回密码 */
 .input-group {
-        background-color: #ffffff;
-        margin-top: 40upx;
-        position: relative;
-    }
+	background-color: #ffffff;
+	margin-top: 40upx;
+	position: relative;
+}
 
-    .input-group::before {
-        position: absolute;
-        right: 0;
-        top: 0;
-        left: 0;
-        height: 1upx;
-        content: '';
-        -webkit-transform: scaleY(.5);
-        transform: scaleY(.5);
-        background-color: #c8c7cc;
-    }
+.input-group::before {
+	position: absolute;
+	right: 0;
+	top: 0;
+	left: 0;
+	height: 1upx;
+	content: '';
+	-webkit-transform: scaleY(0.5);
+	transform: scaleY(0.5);
+	background-color: #c8c7cc;
+}
 
-    .input-group::after {
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        height: 1upx;
-        content: '';
-        -webkit-transform: scaleY(.5);
-        transform: scaleY(.5);
-        background-color: #c8c7cc;
-    }
+.input-group::after {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	height: 1upx;
+	content: '';
+	-webkit-transform: scaleY(0.5);
+	transform: scaleY(0.5);
+	background-color: #c8c7cc;
+}
 
-    .input-row {
-        display: flex;
-        flex-direction: row;
-        position: relative;
-    }
+.input-row {
+	display: flex;
+	flex-direction: row;
+	position: relative;
+}
 
-    .input-row .title {
-        width: 20%;
-        height: 50upx;
-        min-height: 50upx;
-        padding: 15upx 0;
-        padding-left: 30upx;
-        line-height: 50upx;
-    }
+.input-row .title {
+	width: 20%;
+	height: 50upx;
+	min-height: 50upx;
+	padding: 15upx 0;
+	padding-left: 30upx;
+	line-height: 50upx;
+}
 
-    .input-row.border::after {
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        left: 15upx;
-        height: 1upx;
-        content: '';
-        -webkit-transform: scaleY(.5);
-        transform: scaleY(.5);
-        background-color: #c8c7cc;
-    }
+.input-row.border::after {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	left: 15upx;
+	height: 1upx;
+	content: '';
+	-webkit-transform: scaleY(0.5);
+	transform: scaleY(0.5);
+	background-color: #c8c7cc;
+}
 
-    .btn-row {
-        margin-top: 50upx;
-        padding: 20upx;
-    }
+.btn-row {
+	margin-top: 50upx;
+	padding: 20upx;
+}
 
-    button.primary {
-        background-color: #0faeff;
-		line-height: 1.8;
-    }
+button.primary {
+	background-color: #0faeff;
+	line-height: 1.8;
+}
 </style>

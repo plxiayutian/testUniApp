@@ -1,0 +1,6 @@
+*.svn
+/.svn
+/dist
+/node_modules
+/src/node_modules
+/src/unpackage

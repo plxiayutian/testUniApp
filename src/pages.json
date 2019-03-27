@@ -27,6 +27,13 @@
 							"type": "none", //按钮类型
 							"float": "right" //按钮位置
 						}]
+						
+					}
+				},
+				"h5":{
+					"titleNView": {
+						"titleText": "福建省防汛抗旱指挥决策综合平台", //标题文字内容	
+						"titleSize": "18px"		 //标题文字字体大小
 					}
 				}
 			}

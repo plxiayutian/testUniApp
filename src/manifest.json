@@ -1,63 +1,82 @@
 {
-	"name": "7mFJproject",
-	"appid": "__UNI__5430F3F",
-	"description": "福建省防汛抗旱指挥决策综合平台",
-	"versionName": "1.0.0", //版本名称
-	"versionCode": "100",	//版本号
-	"transformPx": true, //是否转换项目的px，为true时将px转换为upx，为false时，px为传统的实际像素
-// 	"networkTimeout": {
-// 		"request": 6000, //uni.request 的超时时间，单位毫秒。
-// 		"connectSocket": 6000, //uni.connectSocket 的超时时间，单位毫秒。
-// 		"uploadFile": 6000, //uni.uploadFile 的超时时间，单位毫秒。
-// 		"downloadFile": 6000 //uni.downloadFile 的超时时间，单位毫秒。
-// 	},
-	"app-plus": {
-		/* 5+App特有相关 */
-		"modules": {},
-		/* 模块配置 */
-		"distribute": {
-			/* 应用发布信息 */
-			"android": {
-				/* android打包配置 */
-				"permissions": [
-					"<uses-feature android:name=\"android.hardware.camera\"/>",
-					"<uses-feature android:name=\"android.hardware.camera.autofocus\"/>",
-					"<uses-permission android:name=\"android.permission.CALL_PHONE\"/>",
-					"<uses-permission android:name=\"android.permission.CAMERA\"/>",
-					"<uses-permission android:name=\"android.permission.CHANGE_NETWORK_STATE\"/>",
-					"<uses-permission android:name=\"android.permission.FLASHLIGHT\"/>",
-					"<uses-permission android:name=\"android.permission.GET_ACCOUNTS\"/>",
-					"<uses-permission android:name=\"android.permission.MODIFY_AUDIO_SETTINGS\"/>",
-					"<uses-permission android:name=\"android.permission.READ_CONTACTS\"/>",
-					"<uses-permission android:name=\"android.permission.RECORD_AUDIO\"/>",
-					"<uses-permission android:name=\"android.permission.VIBRATE\"/>",
-					"<uses-permission android:name=\"android.permission.WAKE_LOCK\"/>",
-					"<uses-permission android:name=\"android.permission.WRITE_CONTACTS\"/>"
-				]
-			},
-			"ios": {},
-			/* ios打包配置 */
-			"sdkConfigs": {
-				"maps": {}
-			}
-		}
-	},
-	/* SDK配置 */
-	"quickapp": {},
-	/* 快应用特有相关 */
-	"mp-weixin": {
-		/* 小程序特有相关 */
-		"appid": "",
-		"setting": {
-			"urlCheck": true,
-			"es6": true,
-			"postcss": true
-		}
-	},
-	"mp-toutiao": {
-		"setting": {
-			"es6": true,
-			"postcss": true
-		}
-	}
+    "name" : "7mFJproject",
+    "appid" : "__UNI__5430F3F",
+    "description" : "福建省防汛抗旱指挥决策综合平台",
+    "versionName" : "1.0.0", //版本名称
+    "versionCode" : "100", //版本号
+    "transformPx" : true, //是否转换项目的px，为true时将px转换为upx，为false时，px为传统的实际像素
+
+    // 	"networkTimeout": {
+    // 		"request": 6000, //uni.request 的超时时间，单位毫秒。
+    // 		"connectSocket": 6000, //uni.connectSocket 的超时时间，单位毫秒。
+    // 		"uploadFile": 6000, //uni.uploadFile 的超时时间，单位毫秒。
+    // 		"downloadFile": 6000 //uni.downloadFile 的超时时间，单位毫秒。
+    // 	},
+    "app-plus" : {
+        /* 5+App特有相关 */
+        "modules" : {
+            "Maps" : {}
+        },
+        /* 模块配置 */
+        "distribute" : {
+            /* 应用发布信息 */
+            "android" : {
+                /* android打包配置 */
+                "permissions" : [
+                    "<uses-feature android:name=\"android.hardware.camera\"/>",
+                    "<uses-feature android:name=\"android.hardware.camera.autofocus\"/>",
+                    "<uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\"/>",
+                    "<uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\"/>",
+                    "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\"/>",
+                    "<uses-permission android:name=\"android.permission.ACCESS_WIFI_STATE\"/>",
+                    "<uses-permission android:name=\"android.permission.CALL_PHONE\"/>",
+                    "<uses-permission android:name=\"android.permission.CAMERA\"/>",
+                    "<uses-permission android:name=\"android.permission.CHANGE_NETWORK_STATE\"/>",
+                    "<uses-permission android:name=\"android.permission.CHANGE_WIFI_STATE\"/>",
+                    "<uses-permission android:name=\"android.permission.FLASHLIGHT\"/>",
+                    "<uses-permission android:name=\"android.permission.GET_ACCOUNTS\"/>",
+                    "<uses-permission android:name=\"android.permission.INTERNET\"/>",
+                    "<uses-permission android:name=\"android.permission.MODIFY_AUDIO_SETTINGS\"/>",
+                    "<uses-permission android:name=\"android.permission.MOUNT_UNMOUNT_FILESYSTEMS\"/>",
+                    "<uses-permission android:name=\"android.permission.READ_CONTACTS\"/>",
+                    "<uses-permission android:name=\"android.permission.READ_LOGS\"/>",
+                    "<uses-permission android:name=\"android.permission.READ_PHONE_STATE\"/>",
+                    "<uses-permission android:name=\"android.permission.RECORD_AUDIO\"/>",
+                    "<uses-permission android:name=\"android.permission.VIBRATE\"/>",
+                    "<uses-permission android:name=\"android.permission.WAKE_LOCK\"/>",
+                    "<uses-permission android:name=\"android.permission.WRITE_CONTACTS\"/>",
+                    "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\"/>",
+                    "<uses-permission android:name=\"android.permission.WRITE_SETTINGS\"/>"
+                ]
+            },
+            "ios" : {},
+            /* ios打包配置 */
+            "sdkConfigs" : {
+                "maps" : {}
+            },
+            "icons" : {
+                "ios" : {
+                    "appstore" : ""
+                }
+            }
+        }
+    },
+    /* SDK配置 */
+    "quickapp" : {},
+    /* 快应用特有相关 */
+    "mp-weixin" : {
+        /* 小程序特有相关 */
+        "appid" : "",
+        "setting" : {
+            "urlCheck" : true,
+            "es6" : true,
+            "postcss" : true
+        }
+    },
+    "mp-toutiao" : {
+        "setting" : {
+            "es6" : true,
+            "postcss" : true
+        }
+    }
 }

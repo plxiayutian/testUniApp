@@ -613,7 +613,7 @@ export default {
 	top: 0;
 	right: 0;
 	width: 240upx;
-	height: 200upx;
+	height: 240upx;
 	z-index: 100;
 	display: none;
 	color: #fff;
@@ -626,7 +626,8 @@ export default {
 	height: 0 !important;
 }
 .top_popup .flex-item {
-	font-size: 36upx;
+	font-size: 40upx;
+    line-height: 80upx;
 }
 /* #endif */
 .top_popup .flex-item .uni-icon {
